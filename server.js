@@ -8,6 +8,7 @@ const ErrorHandler = require('./middlewares/error')
 
 //Routes Files
 const applications = require('./routes/applications')
+const moreAppRouter = require('./routes/moreApps')
 
 //Create express applications
 const app = express();
@@ -31,8 +32,8 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 //Mount Routers 
-app.use('/api/v1/applications',applications)
-
+app.use('/api/v1/applications', applications)
+app.use('/api/v1/moreApps', moreAppRouter)
 
 //Error Handler midleware
 app.use(ErrorHandler)
